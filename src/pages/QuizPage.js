@@ -46,6 +46,18 @@ const QuizPage = () => {
     navigate("/report", { state: { questions, answers } });
   };
 
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
@@ -55,6 +67,8 @@ const QuizPage = () => {
       </div>
     );
   }
+
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
   
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20 transition-colors duration-200">
@@ -74,24 +88,44 @@ const QuizPage = () => {
               options={shuffledOptions[currentQuestionIndex]}
             />
           )}
+
+<div className="flex justify-between mt-8">
+            <button
+              onClick={handlePrevious}
+              disabled={currentQuestionIndex === 0}
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200
+                ${currentQuestionIndex === 0 
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+            >
+              Previous
+            </button>
+            
+            {isLastQuestion ? (
+              <button
+                onClick={handleSubmit}
+                className="bg-green-600 text-white px-8 py-2 rounded-lg 
+                  hover:bg-green-700 transition-all duration-200 font-medium"
+              >
+                Submit Quiz
+              </button>
+            ) : (
+              <button
+                onClick={handleNext}
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg 
+                  hover:bg-blue-700 transition-all duration-200 font-medium"
+              >
+                Next
+              </button>
+            )}
+          </div>
         </div>
-        
+
         <QuestionOverview
           questions={questions}
           answers={answers}
           onNavigate={setCurrentQuestionIndex}
         />
-        
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={handleSubmit}
-            className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-lg 
-              hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200 
-              font-medium shadow-md hover:shadow-lg"
-          >
-            Submit Quiz
-          </button>
-        </div>
       </div>
     </div>
   );
