@@ -1,23 +1,27 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import EmailForm from "./components/EmailForm";
+import QuizPage from "./pages/QuizPage";
+import ReportPage from "./pages/ReportPage";
+import Layout from "./components/Layout";
+import { DarkModeProvider } from './context/DarkModeContext';
 
-function App() {
+const App = () => {
+  const [email, setEmail] = React.useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DarkModeProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<EmailForm setEmail={setEmail} />} />
+            <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/report" element={<ReportPage />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </DarkModeProvider>
   );
-}
+};
 
 export default App;
