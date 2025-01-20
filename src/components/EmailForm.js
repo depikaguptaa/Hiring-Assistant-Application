@@ -22,7 +22,7 @@ const EmailForm = ({ setEmail }) => {
         className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg max-w-md w-full mx-4 animate-fade-in"
       >
         <h1 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-gray-200">
-          Welcome to the Quiz
+          Welcome to the Quiz!
         </h1>
         <div className="space-y-4">
           <div>

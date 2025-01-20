@@ -2,7 +2,7 @@ import React from "react";
 
 const QuizQuestion = ({ question, index, onAnswer, selectedAnswer, options }) => {
   if (!question || !options) {
-    return <p className="text-red-500 dark:text-red-400 text-center p-4">Question not found. Please try again.</p>;
+    return <p className="text-red-500 dark:text-red-400 text-center p-4">Question not found. Please try again!</p>;
   }
 
   const handleChange = (e) => {
