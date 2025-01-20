@@ -9,6 +9,7 @@ module.exports = {
           'slide-left': 'slideLeft 0.5s ease-out forwards',
           'slide-right': 'slideRight 0.5s ease-out forwards',
           'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+          'pulse-ring': 'pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         },
         keyframes: {
           fadeIn: {
@@ -44,6 +45,11 @@ module.exports = {
               transform: 'translateY(0)',
               opacity: '1',
             },
+          },
+          pulseRing: {
+            '0%': { transform: 'scale(1.1)', opacity: 1 },
+            '50%': { transform: 'scale(1.2)', opacity: 0.5 },
+            '100%': { transform: 'scale(1.1)', opacity: 1 },
           },
         },
       },

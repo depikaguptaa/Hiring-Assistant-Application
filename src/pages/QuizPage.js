@@ -125,6 +125,7 @@ const QuizPage = () => {
           questions={questions}
           answers={answers}
           onNavigate={setCurrentQuestionIndex}
+          currentQuestionIndex={currentQuestionIndex}
         />
       </div>
     </div>
