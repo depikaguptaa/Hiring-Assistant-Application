@@ -82,21 +82,6 @@ QuizMaster is a modern, responsive quiz application built with React and Tailwin
    npm start
    ```
 
-## Environment Setup
-
-1. Create a `.env` file in the root directory:
-```bash
-REACT_APP_QUIZ_API_URL=https://opentdb.com/api.php
-REACT_APP_QUIZ_AMOUNT=15
-```
-
-
-The application uses the following environment variables:
-- `REACT_APP_QUIZ_API_URL`: OpenTDB API endpoint
-- `REACT_APP_QUIZ_AMOUNT`: Number of questions to fetch
-
-Note: A `.env.example` file is provided as a template.
-
 ## Assumptions
 
 1. Questions API:
