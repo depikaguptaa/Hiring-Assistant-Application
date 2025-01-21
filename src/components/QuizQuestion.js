@@ -1,14 +1,18 @@
+// Component for rendering individual quiz questions
 import React from "react";
 
+// Fallback UI for missing question data
 const QuizQuestion = ({ question, index, onAnswer, selectedAnswer, options }) => {
   if (!question || !options) {
     return <p className="text-red-500 dark:text-red-400 text-center p-4">Question not found. Please try again!</p>;
   }
 
+  // Handle radio button selection
   const handleChange = (e) => {
     onAnswer(index, e.target.value);
   };
 
+  // Utility function to decode HTML entities in text
   const decodeHTML = (html) => {
     const txt = document.createElement('textarea');
     txt.innerHTML = html;

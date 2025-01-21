@@ -1,6 +1,8 @@
+// Visual progress indicator component
 import React from 'react';
 
 const ProgressBar = ({ total, completed }) => {
+    // Calculate completion percentage
   const percentage = Math.round((completed / total) * 100);
   
   return (

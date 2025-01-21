@@ -1,9 +1,11 @@
+// Timer component with progress tracking
 import React, { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 
 const Timer = ({ onFinish, totalQuestions, answeredQuestions }) => {
-  const [timeLeft, setTimeLeft] = useState(1800);
+  const [timeLeft, setTimeLeft] = useState(1800); // 1800 seconds = 30 minutes
 
+  // Setup countdown timer with cleanup
   useEffect(() => {
     if (timeLeft === 0) {
       onFinish();
@@ -14,6 +16,7 @@ const Timer = ({ onFinish, totalQuestions, answeredQuestions }) => {
       setTimeLeft(prev => prev - 1);
     }, 1000);
 
+    // Cleanup interval on component unmount
     return () => clearInterval(timer);
   }, [timeLeft, onFinish]);
 

@@ -1,9 +1,11 @@
+// Navigation component showing question status
 import React from "react";
 
 const QuestionOverview = ({ questions, answers, onNavigate, currentQuestionIndex }) => {
   return (
     <div className="my-8">
       <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200 mb-3">Question Overview</h3>
+      {/* Grid of question indicators with status colors */}
       <div className="flex flex-wrap gap-2">
         {questions.map((_, index) => (
           <div key={index} className="relative">

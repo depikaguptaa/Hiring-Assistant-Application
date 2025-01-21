@@ -1,3 +1,4 @@
+// Results page showing quiz performance
 import React, { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -12,6 +13,7 @@ const ReportPage = () => {
   const { questions, answers } = state;
   const navigate = useNavigate();
 
+  // Calculate final score using memoization
   const score = useMemo(() => {
     return questions.reduce((acc, q, index) => {
       return acc + (answers[index] === q.correct_answer ? 1 : 0);

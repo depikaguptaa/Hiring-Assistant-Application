@@ -1,3 +1,4 @@
+// Main quiz component handling state and navigation
 import React, { useState, useEffect } from "react";
 import { fetchQuestions } from "../services/api";
 import QuizQuestion from "../components/QuizQuestion";
@@ -6,6 +7,7 @@ import Timer from "../components/Timer";
 import { useNavigate } from "react-router-dom";
 
 const QuizPage = () => {
+    // State for managing quiz data and UI
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -13,12 +15,14 @@ const QuizPage = () => {
   const [shuffledOptions, setShuffledOptions] = useState({});
   const navigate = useNavigate();
 
+  // Load and shuffle questions on component mount
   useEffect(() => {
     const loadQuestions = async () => {
       try {
         const fetchedQuestions = await fetchQuestions();
         if (fetchedQuestions && fetchedQuestions.length > 0) {
           setQuestions(fetchedQuestions);
+          // Shuffle options for each question & maintain consistency
           const initialShuffledOptions = {};
           fetchedQuestions.forEach((q, index) => {
             initialShuffledOptions[index] = q.incorrect_answers
@@ -35,6 +39,7 @@ const QuizPage = () => {
     loadQuestions();
   }, []);
 
+    // Handler functions for quiz navigation and submission
   const handleAnswer = (index, answer) => {
     setAnswers(prev => ({
       ...prev,
