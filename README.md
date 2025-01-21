@@ -1,6 +1,9 @@
 # QuizMaster
 
-Live Demo: [QuizMaster](https://quiz-master-peach.vercel.app/)
+Live Website: [QuizMaster](https://quiz-master-peach.vercel.app/)
+
+## Demo
+[Watch the full demo video here](https://drive.google.com/file/d/17GXWkbR9k2e6FMNGx7KW0pPYR0XNyx_b/view?usp=drive_link)
 
 ## Overview
 
